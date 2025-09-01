@@ -37,7 +37,8 @@ $autores = $conn->query($sql);
         </div>
     </header>
 
-    <br><hr><br>
+    <br>
+    <hr><br>
 
     <div class="container-lg recent-books">
         <h2>Livros mais recentes</h2>
@@ -71,7 +72,39 @@ $autores = $conn->query($sql);
         </div>
     </div>
 
-    <br><hr><br>
+    <br>
+    <hr><br>
+    <div class="container-lg recent-authors">
+        <h2>Autores com mais Livros</h2>
+        <div class="row">
+            <?php
+            if ($autores && $autores->num_rows > 0) {
+                while ($row = $autores->fetch_assoc()) {
+                    $id = (int)$row['id'];
+                    $nome = htmlspecialchars($row['nome']);
+                    $foto = htmlspecialchars($row['foto']);
+
+                    echo <<<HTML
+                        <div class="recente-cont col">
+                            <div class="recente container" style="background-image: url('$foto');">
+                                <a href="#">
+                                    <div class="row align-items-end">
+                                        <div class="col info-holder-authors">
+                                            <h3>$nome</h3>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        HTML;
+                }
+            }
+            ?>
+        </div>
+    </div>
+
+    <br>
+    <hr><br>
 
     <footer class="container-fluid text-center">
         <div class="container-lg">
