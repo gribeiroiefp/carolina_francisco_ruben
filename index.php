@@ -37,15 +37,50 @@ $autores = $conn->query($sql);
         </div>
     </header>
 
+    <br><hr><br>
 
+    <div class="container-lg recent-books">
+        <h2>Livros mais recentes</h2>
+        <div class="row">
+            <?php
+            if ($livros && $livros->num_rows > 0) {
+                while ($row = $livros->fetch_assoc()) {
+                    $id = (int)$row['id'];
+                    $titulo = htmlspecialchars($row['titulo']);
+                    $ano = (int)$row['ano'];
+                    $capa = htmlspecialchars($row['capa']);
+
+                    echo <<<HTML
+                    <div class="recente-cont col">
+                        <div class="recente container"
+                            style="background-image: url('$capa');">
+                            <a href="#">
+                                <div class="row align-items-end">
+                                    <div class="col info-holder-books">
+                                        <h3>$titulo</h3>
+                                        <p>$ano</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    HTML;
+                }
+            }
+            ?>
+        </div>
+    </div>
+
+    <br><hr><br>
+
+    <footer class="container-fluid text-center">
+        <div class="container-lg">
+            <p>&copy;2025 Website de livros</p>
+        </div>
+    </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
         crossorigin="anonymous"></script>
 </body>
-<footer class="container-fluid text-center">
-    <div class="container-lg">
-        <p>&copy;2025 Website de livros</p>
-    </div>
-</footer>
 
 </html>
