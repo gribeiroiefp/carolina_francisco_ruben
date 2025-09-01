@@ -25,7 +25,18 @@ $autores = $conn->query($sql);
 </head>
 
 <body>
-    <h1>Website de livros</h1>
+    <header class="container-fluid">
+        <div class="container-lg">
+            <div class="row align-items-center">
+                <h1 class="col-4">Website de livros</h1>
+                <nav class="col text-end">
+                    <a href="#">Página inicial</a>
+                    <a href="#">Pesquisa</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
