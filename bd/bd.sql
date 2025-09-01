@@ -1,3 +1,27 @@
+CREATE TABLE autores(
+id INT AUTO_INCREMENT PRIMARY KEY,
+nome VARCHAR(40) NOT NULL,
+data_nascimento DATE NOT NULL,
+nacionalidade VARCHAR(40) NOT NULL,
+foto VARCHAR(255) NOT NULL
+);
+ 
+CREATE TABLE livros(
+id INT AUTO_INCREMENT PRIMARY KEY,
+titulo VARCHAR(40)NOT NULL,
+ano YEAR NOT NULL,
+capa VARCHAR (255) NOT NULL
+);
+ 
+CREATE TABLE autores_livros (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    id_livro INT,
+    id_autor INT,    
+    FOREIGN KEY (id_autor) REFERENCES autores(id) ON DELETE CASCADE,
+    FOREIGN KEY (id_livro) REFERENCES livros(id) ON DELETE CASCADE
+ 
+);
+
 -- Inserir livros
 INSERT INTO livros (titulo, ano, capa) VALUES
 ('Memorial do Convento', 1982,'uploads/capas/memorial_do_convento.jpg'),
