@@ -9,7 +9,7 @@ if ($conn->connect_error) {
 $sql = 'SELECT * FROM livros ORDER BY ano DESC LIMIT 3';
 $livros = $conn->query($sql);
 
-$sql = 'SELECT autores.id, nome, foto, COUNT(*) FROM autores JOIN livro_autor WHERE autores_livros.id_autor = autores.id GROUP BY autores.id LIMIT 3;';
+$sql = 'SELECT autores.id, nome, foto, COUNT(*) FROM autores JOIN autores_livros WHERE autores_livros.id_autor = autores.id GROUP BY autores.id LIMIT 3;';
 $autores = $conn->query($sql);
 
 ?>
@@ -26,7 +26,7 @@ $autores = $conn->query($sql);
 
 <body>
     <h1>Website de livros</h1>
-    
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
         crossorigin="anonymous"></script>
