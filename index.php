@@ -31,5 +31,10 @@ $autores = $conn->query($sql);
         integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
         crossorigin="anonymous"></script>
 </body>
+<footer class="container-fluid text-center">
+    <div class="container-lg">
+        <p>&copy;2025 Website de livros</p>
+    </div>
+</footer>
 
 </html>
