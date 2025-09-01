@@ -1,5 +1,5 @@
 -- Inserir livros
-INSERT INTO livros (titulo, anos, capa) VALUES
+INSERT INTO livros (titulo, ano, capa) VALUES
 ('Memorial do Convento', 1982,'uploads/capas/memorial_do_convento.jpg'),
 ('Ensaio sobre a Cegueira', 1995,'uploads/capas/ensaio_sobre_a_cegueira.jpg'),
 ('The Talisman', 1984,'uploads/capas/the_talisman.jpg'),
@@ -22,7 +22,7 @@ INSERT INTO autores (nome, data_nascimento, nacionalidade, foto) VALUES
  
 -- Inserir livro_autor
 
-INSERT INTO autores_livros(livro_id, autor_id) VALUES 
+INSERT INTO autores_livros(id_livro, id_autor) VALUES 
 (1, 1), -- (Memorial do Convento, José Saramago)
 (2, 1), -- (Ensaio sobre a Cegueira, José Saramago)
 (3, 2), -- (The Talisman, Peter Straub)
