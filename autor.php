@@ -32,7 +32,7 @@ $resultado_livros = mysqli_query($conn, $sql_livros_autor);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website de livros</title>
+    <title>Autor</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/styles.css">
@@ -54,7 +54,7 @@ $resultado_livros = mysqli_query($conn, $sql_livros_autor);
         <div class="row align-items-center">
             <h2><?php echo htmlspecialchars($autor['nome']) ?></h2>
             <img src="<?php echo htmlspecialchars($autor['foto']) ?>"
-                alt="Marlon Brando" class="col-3">
+                alt="" class="col-3">
             <div class="informacao col-8">
                 <p><span class="rotulo ano">Nascimento:</span> <?php echo htmlspecialchars($autor['data_nascimento']) ?></p>
                 <p><span class="rotulo genero">Nacionalidade:</span> <?php echo htmlspecialchars($autor['nacionalidade']) ?></p>
@@ -73,9 +73,9 @@ $resultado_livros = mysqli_query($conn, $sql_livros_autor);
         <div class="lista col">
             <h3>Livros</h3>
             <?php
-            if ($resultado_livros && mysqli_num_rows($resultado_livros) > 0)
+            if ($resultado_livros && mysqli_num_rows($resultado_livros) > 0) {
                 while ($livro = mysqli_fetch_assoc($resultado_livros)) {
-                    $id_livro = $livro['id'];
+                    $id_livro = $livro['id_livro'];
                     $poster = $livro['capa'];
                     $titulo = htmlspecialchars($livro['titulo']);
                     $ano = htmlspecialchars($livro['ano']);
@@ -89,6 +89,9 @@ $resultado_livros = mysqli_query($conn, $sql_livros_autor);
                     </a>
                     HTML;
                 }
+            } else {
+                echo "<p>Nenhum livro associado a este autor.</p>";
+            }
             ?>
         </div>
 
