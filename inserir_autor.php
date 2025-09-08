@@ -1,17 +1,23 @@
 <?php
  
+
+
 $conn = new mysqli('127.0.0.1', 'root', '', 'livros_db');
- 
+
 if ($conn->connect_error) {
     die('Erro na ligação: ' . $conn->connect_error);
 }
  
  
 $msg = '';
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') 
+    $titulo = $_POST['titulo'];
+    $ano = (int)$_POST['ano'];
  
 
  
-    $diretorio_fotos = 'uploads/pictures/';
+    $diretorio_fotos = 'uploads/fotos/';
  
     // Verificar se o diretório existe
     if (!is_dir($diretorio_fotos)) {
@@ -35,7 +41,7 @@ $msg = '';
                 if (mysqli_stmt_execute($query)) {
                     $msg = 'Autor inserido com sucesso!';
                 } else {
-                    $msg = 'Erro ao inserir ator: ' . mysqli_error($conn);
+                    $msg = 'Erro ao inserir autor: ' . mysqli_error($conn);
                 }
                 mysqli_stmt_close($query);
             } else {
@@ -44,7 +50,7 @@ $msg = '';
         }
     }
  
-// procurar autores
+
             $result = $conn->query("SELECT id, nome, nacionalidade, foto FROM autores ORDER BY nome");
             $autores = $result->fetch_all(MYSQLI_ASSOC);
  
@@ -69,7 +75,7 @@ mysqli_close($conn);
     <header class="container-fluid">
         <div class="container-lg">
             <div class="row align-items-center">
-                <h1 class="col-4">livros_db</h1>
+                <h1 class="col-4">Website de livros</h1>
                 <nav class="col text-end">
                     <a href="index.php">Página inicial</a>
                     <a href="pesquisa.php">Pesquisa</a>
@@ -107,7 +113,7 @@ mysqli_close($conn);
     </div>
     <footer class="container-fluid text-center">
         <div class="container-lg">
-            <p>&copy; 2025 IMDb2.</p>
+            <p>&copy; 2025 Website de livros.</p>
         </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"

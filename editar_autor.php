@@ -1,10 +1,12 @@
 <?php
 
-$conexao = mysqli_connect('127.0.0.1', 'root', '', 'livros_db');
-if (!$conexao) {
-    die('Erro na ligação: ' . mysqli_connect_error());
+
+
+$conn = new mysqli('127.0.0.1', 'root', '', 'livros_db');
+
+if ($conn->connect_error) {
+    die('Erro na ligação: ' . $conn->connect_error);
 }
- 
 
 $mensagem = "";
 $autores = [
@@ -18,7 +20,7 @@ $autores = [
 
 if (!empty($_GET['id'])) {
     $id = (int)$_GET['id'];
-    $resultado = mysqli_query($conexao, "SELECT * FROM atores WHERE id = $id");
+    $resultado = mysqli_query($conexao, "SELECT * FROM autores WHERE id = $id");
     if ($resultado && mysqli_num_rows($resultado) > 0) {
         $autores = mysqli_fetch_assoc($resultado);
     }
@@ -34,14 +36,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($autores['id'])) {
     $caminho_pictures = $autores['foto'] ?? '';
  
     if (!empty($_FILES['foto']['name'])) {
-        $pasta_destino = __DIR__ . "/uploads/pictures/";
-        $pasta_destino_bd = "uploads/pictures/";
+        $pasta_destino = __DIR__ . "/uploads/fotos/";
+        $pasta_destino_bd = "uploads/fotos/";
  
         if (!is_dir($pasta_destino)) {
             mkdir($pasta_destino, 0755, true);
         }
  
-        $ficheiro = $_FILES['pictures'];
+        $ficheiro = $_FILES['foto'];
         $nome_ficheiro = basename($ficheiro['name']);
         $caminho_completo = $pasta_destino . $nome_ficheiro;
         $caminho_bd = $pasta_destino_bd . $nome_ficheiro;
@@ -60,7 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($autores['id'])) {
     
     if (!$mensagem) {
         $sql = "UPDATE autores
-                SET nome = ?, nascimento = ?, nacionalidade = ?
+                SET nome = ?, nascimento = ?, nacionalidade = ? foto =?
                 WHERE id = ?";
  
         $stmt = mysqli_prepare($conexao, $sql);
@@ -71,7 +73,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($autores['id'])) {
                 $id,
                 $nome,
                 $data_nascimento,
-                $caminho_capa,
+                $caminho_fotos,
                 $id
             );
  
@@ -92,8 +94,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($autores['id'])) {
     }
 }
 
-$res = mysqli_query($conexao, "SELECT id, nome FROM autores ORDER BY nome");
-$autores = mysqli_fetch_all($res, MYSQLI_ASSOC);
+
  
 
 
@@ -133,13 +134,13 @@ mysqli_close($conexao);
         <?php endif ?>
  
         
-        <label for="titulo">nome:</label>
-        <select name="titulo" id="nome" class="form-select mb-3" required>
+        <label for="titulo">Nome:</label>
+        <select name="nome" id="nome" class="form-select mb-3" required>
             <option value="">Selecione um autor </option>
             <?php foreach ($nome as $t): ?>
                 <option value="<?= htmlspecialchars($t['titulo']) ?>"
                     <?= ($autores['nome'] == $t['nome']) ? 'selected' : '' ?>>
-                    <?= htmlspecialchars($t['titulo']) ?>
+                    <?= htmlspecialchars($t['nome']) ?>
                 </option>
             <?php endforeach; ?>
         </select>
@@ -149,7 +150,7 @@ mysqli_close($conexao);
  
         
  
-        <input type="date" name="ano" placeholder="Ano" required min="1100" max="2099" step="1"
+        <input type int="date" name="ano" placeholder="Ano" required min="1100" max="2099" step="1"
             class="form-control mb-3" value="<?php echo htmlspecialchars($autores['ano']) ?>" />
  
  
@@ -159,9 +160,16 @@ mysqli_close($conexao);
         <select name="autor_id" id="autor" class="form-select mb-3" required>
             <option value="">Selecione um autor</option>
             <?php foreach ($autores as $autor): ?>
-                <option value="<?php echo $autor['id'] ?>"
+                <input type int="date" name="ano" placeholder="Ano" required min="1100" max="2099" step="1"
+            class="form-control mb-3" value="<?php echo htmlspecialchars($autores['ano']) ?>" />
+             <option value="<?php echo $autor['id'] ?>"
                     <?php echo ($livros['id_autor'] == $autor['id']) ? 'selected' : '' ?>>
                     <?php echo htmlspecialchars($autor['nome']) ?>
+                    <?php echo htmlspecialchars($autor['nacionalidade']) ?>
+ 
+
+ 
+
                 </option>
             <?php endforeach; ?>
         </select>
@@ -189,7 +197,8 @@ mysqli_close($conexao);
         </div>
     </footer>
  
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
 </body>
- 
+
 </html>
+ >
