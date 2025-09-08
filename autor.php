@@ -103,7 +103,7 @@ $resultado_livros = mysqli_query($conn, $sql_livros_autor);
     </div>
     <footer class="container-fluid text-center">
         <div class="container-lg">
-            <p>&copy; 2025 IMDb2.</p>
+            <p>&copy;2025 Website de livros</p>
         </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
