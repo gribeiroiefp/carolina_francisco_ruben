@@ -42,12 +42,20 @@ $resultado_autores = mysqli_query($conn, $sql_autores);
 // $resultado_todos_atores = mysqli_query($conn, $sql_todos_atores);
 
 // Fetch all authors for the dropdown (all except already)
-$sql_todos_autores = "SELECT id, nome FROM autores ORDER BY nome ASC";
+$sql_todos_autores = "SELECT id, nome 
+FROM autores 
+WHERE NOT EXISTS (
+    SELECT 1 
+    FROM autores_livros 
+    WHERE autores_livros.id_autor = autores.id 
+    AND autores_livros.id_livro = $id
+);";
+
 $resultado_todos_autores = mysqli_query($conn, $sql_todos_autores);
 
 // Handle adding an author to this book
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_author'])) {
-    $id_autor = (int) $_POST['id'];
+    $id_autor = (int) $_POST['id_author'];
     echo $id_autor;
     if ($id_autor > 0) {
         $sql_insert = "INSERT INTO autores_livros (id_livro, id_autor) VALUES ($id, $id_autor)";
@@ -166,7 +174,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_author'])) {
 
     <footer class="container-fluid text-center mt-5">
         <div class="container-lg">
-            <p>&copy; 2025 IMDb2.</p>
+            <p>&copy;2025 Website de livros</p>
         </div>
     </footer>
 
