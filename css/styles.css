@@ -1,0 +1,74 @@
+body {
+    background: #4e878c;
+}
+
+header {
+    background-color: #00241b;
+    color: white;
+}
+
+header div {
+    padding: 4px 0;
+    color: white;
+}
+
+header div a {
+    color: white;
+    text-decoration: none;
+    margin-left: 30px;
+}
+
+header div a:hover {
+    opacity: 0.7;
+}
+
+.recente-cont {
+    min-height: 350px;
+}
+
+.recente .row{
+    height: 100%;
+    padding: 10px;
+    background: rgba(1, 1, 1, 0.2);
+    border-radius: 5px;
+}
+
+.recente .row:hover{
+    background: rgba(1, 1, 1, 0.6);
+}
+
+.recente {
+    height: 100%;
+    background: black;
+    background-position: center;
+    background-size: cover;
+    border-radius: 5px;
+}
+
+.recente a{
+    color: white;
+    text-decoration: none;
+    height: 100%;
+}
+
+.info-holder-books{
+    background-color: rgba(0, 0, 0, 0.75);
+    padding: 10px 5px;
+    min-height: 125px;
+    border-radius: 5px;
+}
+
+.info-holder-authors{
+    background-color: rgba(0, 0, 0, 0.75);
+    padding: 10px 5px;
+    align-content: center;
+    border-radius: 5px;
+}
+
+
+footer {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: #00241b;
+    color: white;
+}

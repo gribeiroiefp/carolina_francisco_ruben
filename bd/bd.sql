@@ -1,16 +1,16 @@
 CREATE TABLE autores(
-id INT AUTO_INCREMENT PRIMARY KEY,
-nome VARCHAR(40) NOT NULL,
-data_nascimento DATE NOT NULL,
-nacionalidade VARCHAR(40) NOT NULL,
-foto VARCHAR(255) NOT NULL
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(40) NOT NULL,
+    data_nascimento DATE NOT NULL,
+    nacionalidade VARCHAR(40) NOT NULL,
+    foto VARCHAR(255) NOT NULL
 );
  
 CREATE TABLE livros(
-id INT AUTO_INCREMENT PRIMARY KEY,
-titulo VARCHAR(40)NOT NULL,
-ano INT NOT NULL,
-capa VARCHAR (255) NOT NULL
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    titulo VARCHAR(40)NOT NULL,
+    ano INT NOT NULL,
+    capa VARCHAR (255) NOT NULL
 );
  
 CREATE TABLE autores_livros (
@@ -19,7 +19,6 @@ CREATE TABLE autores_livros (
     id_autor INT,    
     FOREIGN KEY (id_autor) REFERENCES autores(id) ON DELETE CASCADE,
     FOREIGN KEY (id_livro) REFERENCES livros(id) ON DELETE CASCADE
- 
 );
 
 -- Inserir livros
@@ -33,17 +32,14 @@ INSERT INTO livros (titulo, ano, capa) VALUES
 ('O Crime do Padre Amaro', 1875,'uploads/capas/crime_do_padre_amaro.jpg'),
 ('Os Maias', 1888,'uploads/capas/os_maias.jpg');
 
-
 -- Inserir autores
 INSERT INTO autores (nome, data_nascimento, nacionalidade, foto) VALUES
-('José Saramago', '1922-11-16', 'Portugal', 'uploads/pictures/jose_saramago.jpg'), -- 3 livros
-('Peter Straub', '1943-03-02', 'United States', 'uploads/pictures/peter_straub.jpg'), -- 2 livros
-('Stephen King', '1947-09-21', 'United States', 'uploads/pictures/stephen_king.jpg'), -- 2 livros
-('J. R. R. Tolkien', '1892-01-03', 'United Kingdom', 'uploads/pictures/j_r_r_tolkien.jpg'), -- 0 livros
-('Eça de Queirós', '1845-11-25', 'Portugal', 'uploads/pictures/Eça_de_Queiros.jpg'); -- 2 livros
+('José Saramago', '1922-11-16', 'Portugal', 'uploads/fotos/jose_saramago.jpg'), -- 3 livros
+('Peter Straub', '1943-03-02', 'United States', 'uploads/fotos/peter_straub.jpg'), -- 2 livros
+('Stephen King', '1947-09-21', 'United States', 'uploads/fotos/stephen_king.jpg'), -- 2 livros
+('J. R. R. Tolkien', '1892-01-03', 'United Kingdom', 'uploads/fotos/j_r_r_tolkien.jpg'), -- 0 livros
+('Eça de Queirós', '1845-11-25', 'Portugal', 'uploads/fotos/Eça_de_Queiros.jpg'); -- 2 livros
 
-
- 
 -- Inserir livro_autor
 
 INSERT INTO autores_livros(id_livro, id_autor) VALUES 
