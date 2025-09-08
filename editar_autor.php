@@ -29,9 +29,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($autor['id'])) {
     // --- VERIFICAR SE UMA NOVA FOTO FOI ENVIADA --- 
     if (!empty($_FILES['foto']['name'])) {
         // Caminho absoluto para guardar no servidor 
-        $pasta_destino = __DIR__ . "/uploads/pictures/";
+        $pasta_destino = __DIR__ . "/uploads/fotos/";
         // Caminho relativo a guardar na base de dados 
-        $pasta_destino_bd = "uploads/pictures/";
+        $pasta_destino_bd = "uploads/fotos/";
         // Criar a pasta se não existir 
         if (!is_dir($pasta_destino)) {
             mkdir($pasta_destino, 0755, true);
