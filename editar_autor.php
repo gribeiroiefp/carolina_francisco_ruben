@@ -1,11 +1,11 @@
 <?php
-// LIGAR BASE DE DADOS
+
 $conexao = mysqli_connect('127.0.0.1', 'root', '', 'livros_db');
 if (!$conexao) {
     die('Erro na ligação: ' . mysqli_connect_error());
 }
  
-// Variáveis para mensagens e dados do livro
+
 $mensagem = "";
 $autores = [
     'id' => '',
@@ -15,7 +15,7 @@ $autores = [
     'foto' => ''
 ];
  
-// --- BUSCAR livro SE O ID FOR FORNECIDO NA URL ---
+
 if (!empty($_GET['id'])) {
     $id = (int)$_GET['id'];
     $resultado = mysqli_query($conexao, "SELECT * FROM atores WHERE id = $id");
@@ -24,17 +24,15 @@ if (!empty($_GET['id'])) {
     }
 }
  
-// --- PROCESSAR FORMULÁRIO SE FOI SUBMETIDO ---
+
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($autores['id'])) {
     $id = (int)$autores['id'];
     $nome = $_POST['nome'];
     $data_nascimento = (int)$_POST['ano'];
     
  
-    // capa inicial: o que já está guardado na base de dados
     $caminho_pictures = $autores['foto'] ?? '';
  
-    // --- VERIFICAR SE UM NOVO capa FOI ENVIADO ---
     if (!empty($_FILES['foto']['name'])) {
         $pasta_destino = __DIR__ . "/uploads/pictures/";
         $pasta_destino_bd = "uploads/pictures/";
@@ -43,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($autores['id'])) {
             mkdir($pasta_destino, 0755, true);
         }
  
-        $ficheiro = $_FILES['capa'];
+        $ficheiro = $_FILES['pictures'];
         $nome_ficheiro = basename($ficheiro['name']);
         $caminho_completo = $pasta_destino . $nome_ficheiro;
         $caminho_bd = $pasta_destino_bd . $nome_ficheiro;
@@ -59,10 +57,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($autores['id'])) {
         }
     }
  
-    // --- ATUALIZAR livro NA BASE DE DADOS COM PREPARED STATEMENT ---
+    
     if (!$mensagem) {
         $sql = "UPDATE autores
-                SET nome = ?, data de nascimento = ?, nacionalidade = ?
+                SET nome = ?, nascimento = ?, nacionalidade = ?
                 WHERE id = ?";
  
         $stmt = mysqli_prepare($conexao, $sql);
@@ -72,7 +70,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($autores['id'])) {
                 "sisi",
                 $id,
                 $nome,
-                $ano,
+                $data_nascimento,
                 $caminho_capa,
                 $id
             );
@@ -93,14 +91,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($autores['id'])) {
         }
     }
 }
-// procurar autores
+
 $res = mysqli_query($conexao, "SELECT id, nome FROM autores ORDER BY nome");
 $autores = mysqli_fetch_all($res, MYSQLI_ASSOC);
  
-// Procurar todos os títulos para o dropdown
-$resTitulos = mysqli_query($conexao, "SELECT id, titulo FROM livros ORDER BY titulo");
-$titulos = mysqli_fetch_all($resTitulos, MYSQLI_ASSOC);
- 
+
+
 mysqli_close($conexao);
  
 ?>
@@ -111,7 +107,7 @@ mysqli_close($conexao);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editar livros</title>
+    <title>Editar autores</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./css/styles.css">
 </head>
@@ -130,19 +126,19 @@ mysqli_close($conexao);
     </header>
  
     <div class="container-lg inserir">
-        <h2>Editar livros </h2>
+        <h2>Editar autores </h2>
  
         <?php if ($mensagem): ?>
             <div class="alert alert-info"><?php echo htmlspecialchars($mensagem) ?></div>
         <?php endif ?>
  
         
-        <label for="titulo">Título:</label>
-        <select name="titulo" id="titulo" class="form-select mb-3" required>
-            <option value="">Selecione um título</option>
-            <?php foreach ($titulos as $t): ?>
+        <label for="titulo">nome:</label>
+        <select name="titulo" id="nome" class="form-select mb-3" required>
+            <option value="">Selecione um autor </option>
+            <?php foreach ($nome as $t): ?>
                 <option value="<?= htmlspecialchars($t['titulo']) ?>"
-                    <?= ($livros['titulo'] == $t['titulo']) ? 'selected' : '' ?>>
+                    <?= ($autores['nome'] == $t['nome']) ? 'selected' : '' ?>>
                     <?= htmlspecialchars($t['titulo']) ?>
                 </option>
             <?php endforeach; ?>
@@ -153,8 +149,8 @@ mysqli_close($conexao);
  
         
  
-        <input type="number" name="ano" placeholder="Ano" required min="1100" max="2099" step="1"
-            class="form-control mb-3" value="<?php echo htmlspecialchars($livros['ano']) ?>" />
+        <input type="date" name="ano" placeholder="Ano" required min="1100" max="2099" step="1"
+            class="form-control mb-3" value="<?php echo htmlspecialchars($autores['ano']) ?>" />
  
  
  
@@ -176,14 +172,14 @@ mysqli_close($conexao);
  
  
  
-        <label for="capa" class="form-label">Capa do livro (imagem):</label>
-        <input type="file" name="capa" id="capa" accept="image/*" class="form-control mb-3" />
+        <label for="foto" class="form-label"> Foto do autor (imagem):</label>
+        <input type="file" name="pictures" id="imagem" accept="image/*" class="form-control mb-3" />
  
         <?php if (!empty($livros['capa'])): ?>
-            <img src="<?php echo htmlspecialchars($livros['capa']) ?>" alt="Capa do livro" class="foto">
+            <img src="<?php echo htmlspecialchars($livros['foto']) ?>" alt="imagem do autor" class="foto">
         <?php endif; ?>
  
-        <button type="submit" class="btn btn-primary">Editar Livro</button>
+        <button type="submit" class="btn btn-primary">Editar autor</button>
         </form>
     </div>
  
