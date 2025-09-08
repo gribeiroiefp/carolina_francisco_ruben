@@ -9,13 +9,13 @@ if ($conn->connect_error) {
 }
 
 $mensagem = "";
-$autores = [
-    'id' => '',
-    'nome' => '',
-    'data_nascimento' => '',
-    'nacionalidade' => '',
-    'foto' => ''
-];
+// $autores = [
+//     'id' => '',
+//     'nome' => '',
+//     'data_nascimento' => '',
+//     'nacionalidade' => '',
+//     'foto' => ''
+// ];
  
 
 if (!empty($_GET['id'])) {
