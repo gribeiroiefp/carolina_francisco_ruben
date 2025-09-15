@@ -16,7 +16,11 @@ if (!empty($_GET['id'])) {
     if ($resultado && mysqli_num_rows($resultado) > 0) {
         $autor = mysqli_fetch_assoc($resultado);
     }
-} // --- PROCESSAR FORMULÁRIO SE FOI SUBMETIDO --- 
+
+
+} 
+
+// --- PROCESSAR FORMULÁRIO SE FOI SUBMETIDO --- 
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($autor['id'])) {
     // Receber dados do formulário 
     $id = (int)$autor['id'];
@@ -82,6 +86,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($autor['id'])) {
         }
     }
 }
+
+
 // Fechar ligação à base de dados 
 mysqli_close($conexao);
 ?>

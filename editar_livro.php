@@ -5,17 +5,21 @@ if (!$conexao) {
     die('Erro na ligação: ' . mysqli_connect_error());
 }
 
+
 // Variáveis para mensagens e dados do livro
 $mensagem = "";
-$livros = [
-    'id' => '',
-    'titulo' => '',
-    'ano' => '',
-    'id_autor' => '',
-    'capa' => ''
-];
+
+// $livros = [
+//     'id' => '',
+//     'titulo' => '',
+//     'ano' => '',
+//     'id_autor' => '',
+//     'capa' => ''
+// ];
 
 // --- BUSCAR livro SE O ID FOR FORNECIDO NA URL ---
+
+echo $_GET['id'];
 if (!empty($_GET['id'])) {
     $id = (int)$_GET['id'];
     $resultado = mysqli_query($conexao, "SELECT * FROM livros WHERE id = $id");
@@ -29,7 +33,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($livros['id'])) {
     $id = (int)$livros['id'];
     $titulo = $_POST['titulo'];
     $ano = (int)$_POST['ano'];
-    $autor = $_POST['id_autor'];
 
     // capa inicial: o que já está guardado na base de dados
     $caminho_capa = $livros['capa'] ?? '';
@@ -92,6 +95,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($livros['id'])) {
         }
     }
 }
+
 // procurar autores
 $res = mysqli_query($conexao, "SELECT id, nome FROM autores ORDER BY nome");
 $autores = mysqli_fetch_all($res, MYSQLI_ASSOC);
@@ -135,8 +139,7 @@ mysqli_close($conexao);
             <div class="alert alert-info"><?php echo htmlspecialchars($mensagem) ?></div>
         <?php endif ?>
 
-
-        <form action="editar_livro.php?id=<?= $livros['id'] ?>" method="POST" enctype="multipart/form-data">
+        <form action="editar_livro.php?id=<?= $livros['id'] ?>" method="POST" enctype="multipart/form-data" class="inserir">
 
             <label for="titulo">Título:</label>
             <select name="titulo" id="titulo" class="form-select mb-3" required>
@@ -158,18 +161,6 @@ mysqli_close($conexao);
                 class="form-control mb-3" value="<?php echo htmlspecialchars($livros['ano']) ?>" />
 
 
-
-
-            <label for="autor">Autor:</label>
-            <select name="id_autor" id="autor" class="form-select mb-3" required>
-                <option value="">Selecione um autor</option>
-                <?php foreach ($autores as $autor): ?>
-                    <option value="<?php echo $autor['id'] ?>"
-                        <?php echo ($livros['id_autor'] == $autor['id']) ? 'selected' : '' ?>>
-                        <?php echo htmlspecialchars($autor['nome']) ?>
-                    </option>
-                <?php endforeach; ?>
-            </select>
 
 
 
