@@ -50,5 +50,5 @@ INSERT INTO autores_livros(id_livro, id_autor) VALUES
 (4, 3), -- (The Shinning, Stephen King)
 (5, 2), -- (Ghost Story, Peter Straub)
 (6, 1), -- (Ensaio sobre a lucidez, José Saramago)
-(7, 1), -- (O Crime do Padre Amaro, eça de queiros)
-(8, 1); -- (Os Maias, eça de queiros )
+(7, 5), -- (O Crime do Padre Amaro, eça de queiros)
+(8, 5); -- (Os Maias, eça de queiros )
