@@ -9,7 +9,7 @@ $resultados = [];
 
 if (isset($_GET['string']) && !empty($_GET['string'])) {
     $string = $_GET['string'];
-    $sql = "SELECT   livros.id, livros.titulo, livros.capa, livros.ano
+    $sql = "SELECT DISTINCT livros.id, livros.titulo, livros.capa, livros.ano
     FROM livros
     LEFT JOIN autores_livros ON livros.id = autores_livros.id_livro
     LEFT JOIN autores  ON autores.id = autores_livros.id_autor
@@ -73,7 +73,7 @@ if (isset($_GET['string']) && !empty($_GET['string'])) {
 
                         echo <<<HTML
                     <a href="livro.php?id=$id" class="livro_link row align-items-end">
-                        <img src="$capa" alt="o padrinho" class="col-3">
+                        <img src="$capa" alt="imagem capa" class="col-3">
                         <div class="livro col">
                             <h3>$titulo</h3>
                             <p>$ano</p>
