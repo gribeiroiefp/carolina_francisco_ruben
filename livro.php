@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_livro'])) {
  }
 
 
- if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_actor'])) {
+ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_autor'])) {
    $id_autor = (int) $_POST['id_autor'];
 //     $personagem = mysqli_real_escape_string($conn, $_POST['personagem']);
 
