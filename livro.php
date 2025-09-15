@@ -7,24 +7,14 @@ if (!$conn) {
 
 $id = (int) $_GET['id'];
 
-// // Handle deletion of the movie
-// if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_movie'])) {
-//     mysqli_query($conn, "DELETE FROM filmes WHERE id = $id");
-//     header('Location: index.php');
-//     exit;
-// }
 
-// // Handle adding an actor to this movie
-// if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_actor'])) {
-//     $id_ator = (int) $_POST['id_ator'];
-//     $personagem = mysqli_real_escape_string($conn, $_POST['personagem']);
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_book'])) {
+    mysqli_query($conn, "DELETE FROM livros WHERE id = $id");
+    header('Location: index.php');
+     exit;
+ }
 
-//     if ($id_ator > 0 && $personagem !== '') {
-//         $sql_insert = "INSERT INTO filme_ator (id_filme, id_ator, personagem) 
-//                        VALUES ($id, $id_ator, '$personagem')";
-//         mysqli_query($conn, $sql_insert);
-//     }
-// }
+
 
 // Fetch book info
 $sql = "SELECT * FROM livros WHERE id = $id";
@@ -98,9 +88,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_author'])) {
                 <h2><?php echo htmlspecialchars($livro['titulo']); ?></h2>
                 <p><span class="rotulo ano">Ano:</span> <?php echo htmlspecialchars($livro['ano']); ?></p>
             </div>
-            <<div class="col-1 opcoes align-self-start">
-                <a href="editar_livro.php?id=<? $livro['id'] 
-                                                ?>" class="btn btn-primary btn-editar">
+            <div class="col-1 opcoes align-self-start">
+                <a href="editar_livro.php?id=<? $livro['id'] ?>" class="btn btn-primary btn-editar">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
                         <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.5.5 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11z" />
                     </svg>
@@ -165,7 +154,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_author'])) {
             </form>
         </div>
 
-        <<div class="editar mt-5">
+        <div class="editar mt-5">
             <h2>Opções</h2>
             <a href="inserir_livro.php" class="btn btn-primary">Inserir Filme</a>
             <a href="inserir_autor.php" class="btn btn-primary">Inserir Ator</a>
