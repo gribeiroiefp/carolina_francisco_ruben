@@ -71,7 +71,6 @@ $resultado_livros = mysqli_query($conn, $sql_livros_autor);
                 </form>
             </div> -->
         </div>
-
         <br>
         <div class="lista col">
             <h3>Livros</h3>

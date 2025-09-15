@@ -162,7 +162,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_author'])) {
                     </select>
                 </div>
                 <div class="col-2 align-self-end">
-                    <button type="submit" class="btn btn-secondary w-100">Adicionar</button>
+                    <button type="submit" class="btn w-100 add-btn">Adicionar</button>
                 </div>
             </form>
         </div>

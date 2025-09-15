@@ -26,14 +26,14 @@ header div a:hover {
     min-height: 350px;
 }
 
-.recente .row{
+.recente .row {
     height: 100%;
     padding: 10px;
     background: rgba(1, 1, 1, 0.2);
     border-radius: 5px;
 }
 
-.recente .row:hover{
+.recente .row:hover {
     background: rgba(1, 1, 1, 0.6);
 }
 
@@ -45,20 +45,20 @@ header div a:hover {
     border-radius: 5px;
 }
 
-.recente a{
+.recente a {
     color: white;
     text-decoration: none;
     height: 100%;
 }
 
-.info-holder-books{
+.info-holder-books {
     background-color: rgba(0, 0, 0, 0.75);
     padding: 10px 5px;
     min-height: 125px;
     border-radius: 5px;
 }
 
-.info-holder-authors{
+.info-holder-authors {
     background-color: rgba(0, 0, 0, 0.75);
     padding: 10px 5px;
     align-content: center;
@@ -73,11 +73,12 @@ footer {
     color: white;
 }
 
-.author-header{
+.author-header {
     padding: 10px 10px 10px 0px;
 }
 
-.book-item, .author-item{
+.book-item,
+.author-item {
     text-decoration: none;
     color: black;
     background-color: #b2bb91;
@@ -85,10 +86,12 @@ footer {
     padding: 10px 10px 10px 0px;
 }
 
-.rotulo{
-    color:black;
-    font-size:large;
+.rotulo {
+    color: black;
+    font-size: large;
 }
 
-
-
+.add-btn {
+    background: #d16344;
+    color: white;
+}
