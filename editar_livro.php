@@ -184,7 +184,9 @@ mysqli_close($conexao);
                 <img src="<?php echo htmlspecialchars($livros['capa']) ?>" alt="Capa do livro" class="foto">
             <?php endif; ?>
 
-            <button type="submit" class="btn btn-primary">Editar Livro</button>
+            <button type="submit" class="btn btn-secondary">Editar Livro</button>
+            <br><br><br>
+
         </form>
     </div>
 
