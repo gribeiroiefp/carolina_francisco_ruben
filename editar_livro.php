@@ -152,21 +152,8 @@ mysqli_close($conexao);
                 <?php endforeach; ?>
             </select>
 
-
-
-
-
-
             <input type="number" name="ano" placeholder="Ano" required min="1100" max="2099" step="1"
                 class="form-control mb-3" value="<?php echo htmlspecialchars($livros['ano']) ?>" />
-
-
-
-
-
-
-
-
 
             <label for="capa" class="form-label">Capa do livro (imagem):</label>
             <input type="file" name="capa" id="capa" accept="image/*" class="form-control mb-3" />

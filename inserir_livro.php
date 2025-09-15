@@ -11,7 +11,7 @@ $msg = '';
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $titulo = $_POST['titulo'];
     $ano = (int)$_POST['ano'];
-
+    $id_autor = (int)$_POST['autor_id'];
     $diretorio_capas = 'uploads/capas/';
 
     // Verificar diretório 
@@ -35,10 +35,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 mysqli_stmt_bind_param($query, 'sis', $titulo, $ano, $imagem_caminho);
                 if (mysqli_stmt_execute($query)) {
                     $msg = 'Livro inserido com sucesso!';
+                    $id_livro = mysqli_insert_id($conn);
+
+                    if ($id_autor > 0) {
+                        $sql_insert = "INSERT INTO autores_livros (id_livro, id_autor) VALUES ($id_livro, $id_autor)";
+                        mysqli_query($conn, $sql_insert);
+                    }
                 } else {
                     $msg = 'Erro ao inserir livro: ' . mysqli_error($conn);
                 }
+                
                 mysqli_stmt_close($query);
+
             } else {
                 $msg = 'Erro na preparação da query: ' . mysqli_error($conn);
             }
