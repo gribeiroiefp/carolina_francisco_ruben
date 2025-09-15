@@ -7,16 +7,16 @@ if (!$conn) {
 
 $id = (int) $_GET['id'];
 
+// // Handle deletion of the movie
+// if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_movie'])) {
+//     mysqli_query($conn, "DELETE FROM filmes WHERE id = $id");
+//     header('Location: index.php');
+//     exit;
+// }
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_livro'])) {
-     mysqli_query($conn, "DELETE FROM livros WHERE id = $id");
-    header('Location: index.php');
-    exit;
- }
-
-
- if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_autor'])) {
-   $id_autor = (int) $_POST['id_autor'];
+// // Handle adding an actor to this movie
+// if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_actor'])) {
+//     $id_ator = (int) $_POST['id_ator'];
 //     $personagem = mysqli_real_escape_string($conn, $_POST['personagem']);
 
 //     if ($id_ator > 0 && $personagem !== '') {
@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_livro'])) {
 //                        VALUES ($id, $id_ator, '$personagem')";
 //         mysqli_query($conn, $sql_insert);
 //     }
-}
+// }
 
 // Fetch book info
 $sql = "SELECT * FROM livros WHERE id = $id";
