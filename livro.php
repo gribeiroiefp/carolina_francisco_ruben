@@ -7,14 +7,11 @@ if (!$conn) {
 
 $id = (int) $_GET['id'];
 
-
 // Handle deassociate author from this book
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['deassociate_author'])) {
     $id_author = (int) $_POST['id_author'];
 
-    // echo "autor>> " . $id_author . " livro>> " . $id;
-
-    if ($id_author > 0){
+    if ($id_author > 0) {
         mysqli_query($conn, "DELETE FROM autores_livros WHERE id_autor = $id_author AND id_livro = $id");
         header('Location: livro.php?id=' . $id);
         exit();
@@ -65,7 +62,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_author'])) {
 <!DOCTYPE html>
 <html lang="pt">
 
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -91,7 +87,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_author'])) {
     <br>
     <div class="container-lg filme">
         <div class="row align-items-center info">
-            <img src="<?php echo htmlspecialchars($livro['capa']); ?>" alt="" class="col-3">
+            <img src="<?php echo htmlspecialchars($livro['capa']); ?>" alt="capa de livro" class="col-3">
             <div class="col-8">
                 <h2><?php echo htmlspecialchars($livro['titulo']); ?></h2>
                 <p><span class="rotulo ano">Ano:</span> <?php echo htmlspecialchars($livro['ano']); ?></p>
@@ -128,7 +124,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_author'])) {
                             </div>
                         </a>
                         HTML;
-                        }
+                    }
                 } else {
                     echo "<p>Nenhum autor associado a este livro.</p>";
                 }
@@ -160,11 +156,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_author'])) {
             </form>
         </div>
 
-        <!-- <div class="editar mt-5">
-            <h2>Opções</h2>
-            <a href="inserir_filme.php" class="btn btn-primary">Inserir Filme</a>
-            <a href="inserir_ator.php" class="btn btn-primary">Inserir Ator</a>
-        </div> -->
     </div>
 
     <footer class="container-fluid text-center mt-5">

@@ -102,11 +102,8 @@ mysqli_close($conn);
             <input type="file" name="capa" id="capa" accept="image/*" required class="form-control mb-3" />
             <button type="submit" class="btn btn-primary">Inserir Livro</button>
         </form>
-        <div class="editar">
-            <h2>Opções</h2>
-            <a href="inserir_autor.php" class="btn btn-primary">Inserir autor</a>
-        </div>
     </div>
+    
     <footer class="container-fluid text-center">
         <div class="container-lg">
             <p>&copy; 2025 Website de livros</p>

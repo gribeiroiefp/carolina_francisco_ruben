@@ -97,11 +97,6 @@ $resultado_livros = mysqli_query($conn, $sql_livros_autor);
             ?>
         </div>
 
-        <!-- <div class="editar">
-            <h2>Opções</h2>
-            <a href="inserir_filme.php" class="btn btn-primary">Inserir Filme</a>
-            <a href="inserir_ator.php" class="btn btn-primary">Inserir Ator</a>
-        </div> -->
     </div>
     <footer class="container-fluid text-center">
         <div class="container-lg">

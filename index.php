@@ -70,10 +70,10 @@ $autores = $conn->query($sql);
             }
             ?>
         </div>
-    </div>
-
     <br>
     <hr><br>
+    </div>
+
     <div class="container-lg recent-authors">
         <h2>Autores com mais Livros</h2>
         <div class="row">
@@ -101,6 +101,16 @@ $autores = $conn->query($sql);
             }
             ?>
         </div>
+        
+    <br>
+    <hr><br>
+            
+    <div class="editar">
+        <h2>Opções</h2>
+        <a href="inserir_livro.php" class="btn add-btn">Inserir Livro</a>
+        <a href="inserir_autor.php" class="btn add-btn">Inserir Autor</a>
+    </div>
+
     </div>
 
     <br>
