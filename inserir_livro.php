@@ -100,11 +100,11 @@ mysqli_close($conn);
 
             <label for="capa" class="form-label">Capa do Livro (imagem):</label>
             <input type="file" name="capa" id="capa" accept="image/*" required class="form-control mb-3" />
-            <button type="submit" class="btn btn-primary">Inserir Livro</button>
+            <button type="submit" class="btn btn-secondary">Inserir Livro</button>
         </form>
         <div class="editar">
             <h2>Opções</h2>
-            <a href="inserir_autor.php" class="btn btn-primary">Inserir autor</a>
+            <a href="inserir_autor.php" class="btn btn-secondary">Inserir autor</a>
         </div>
     </div>
     <footer class="container-fluid text-center">

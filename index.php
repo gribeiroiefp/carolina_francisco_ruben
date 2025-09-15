@@ -32,7 +32,7 @@ $autores = $conn->query($sql);
                 <h1 class="col-4">Website de livros</h1>
                 <nav class="col text-end">
                     <a href="#">Página inicial</a>
-                    <a href="#">Pesquisa</a>
+                    <a href="pesquisa.php">Pesquisa</a>
                 </nav>
             </div>
         </div>
