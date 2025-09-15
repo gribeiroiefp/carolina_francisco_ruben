@@ -50,8 +50,9 @@ $resultado_livros = mysqli_query($conn, $sql_livros_autor);
             </div>
         </div>
     </header>
+    <br>
     <div class="autor container-lg">
-        <div class="row align-items-center">
+        <div class="row align-items-center author-header">
             <h2><?php echo htmlspecialchars($autor['nome']) ?></h2>
             <img src="<?php echo htmlspecialchars($autor['foto']) ?>"
                 alt="" class="col-3">
@@ -70,6 +71,8 @@ $resultado_livros = mysqli_query($conn, $sql_livros_autor);
                 </form>
             </div> -->
         </div>
+
+        <br>
         <div class="lista col">
             <h3>Livros</h3>
             <?php
@@ -80,11 +83,11 @@ $resultado_livros = mysqli_query($conn, $sql_livros_autor);
                     $titulo = htmlspecialchars($livro['titulo']);
                     $ano = htmlspecialchars($livro['ano']);
                     echo <<<HTML
-                    <a href="livro.php?id=$id_livro" class="row align-items-end">
+                    <a href="livro.php?id=$id_livro" class="row align-items-end book-item">
                         <img src="$poster" alt="" class="col-2">
                         <div class="filme col-10">
-                            <h3>$titulo</h3>
                             <p>$ano</p>
+                            <h3>$titulo</h3>
                         </div>
                     </a>
                     HTML;

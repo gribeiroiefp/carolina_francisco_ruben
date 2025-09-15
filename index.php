@@ -39,7 +39,6 @@ $autores = $conn->query($sql);
     </header>
 
     <br>
-    <hr><br>
 
     <div class="container-lg recent-books">
         <h2>Livros mais recentes</h2>
@@ -105,7 +104,7 @@ $autores = $conn->query($sql);
     </div>
 
     <br>
-    <hr><br>
+    <br>
 
     <footer class="container-fluid text-center">
         <div class="container-lg">

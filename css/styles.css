@@ -1,9 +1,9 @@
 body {
-    background: #4e878c;
+    background: #fff7cc;
 }
 
 header {
-    background-color: #00241b;
+    background-color: #d16344;
     color: white;
 }
 
@@ -69,6 +69,26 @@ header div a:hover {
 footer {
     padding-top: 40px;
     padding-bottom: 40px;
-    background-color: #00241b;
+    background-color: #b2bb91;
     color: white;
 }
+
+.author-header{
+    padding: 10px 10px 10px 0px;
+}
+
+.book-item, .author-item{
+    text-decoration: none;
+    color: black;
+    background-color: #b2bb91;
+    margin-bottom: 20px;
+    padding: 10px 10px 10px 0px;
+}
+
+.rotulo{
+    color:black;
+    font-size:large;
+}
+
+
+

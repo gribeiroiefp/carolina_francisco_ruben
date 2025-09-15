@@ -91,8 +91,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_author'])) {
         </div>
     </header>
 
+<br>
     <div class="container-lg filme">
-        <div class="row align-items-start info">
+        <div class="row align-items-center info">
             <img src="<?php echo htmlspecialchars($livro['capa']); ?>" alt="" class="col-3">
             <div class="col-8">
                 <h2><?php echo htmlspecialchars($livro['titulo']); ?></h2>
@@ -114,6 +115,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_author'])) {
             </div> -->
         </div>
 
+<br>
         <div class="informacao">
             <div class="lista col">
                 <h3>Autores</h3>
@@ -125,7 +127,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_author'])) {
                         $foto = htmlspecialchars($autor['foto']);
                         $nacionalidade = htmlspecialchars($autor['nacionalidade']);
                         echo <<<HTML
-                    <a href="autor.php?id=$id_autor" class="row align-items-end mb-2">
+                    <a href="autor.php?id=$id_autor" class="row align-items-end mb-2 author-item">
                         <img src="$foto" alt="$nome" class="col-2">
                         <div class="col-10">
                             <p class="nome mb-0">$nome</p>
@@ -160,7 +162,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_author'])) {
                     </select>
                 </div>
                 <div class="col-2 align-self-end">
-                    <button type="submit" class="btn btn-success w-100">Adicionar</button>
+                    <button type="submit" class="btn btn-secondary w-100">Adicionar</button>
                 </div>
             </form>
         </div>
