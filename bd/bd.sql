@@ -26,7 +26,7 @@ INSERT INTO livros (titulo, ano, capa) VALUES
 ('Memorial do Convento', 1982,'uploads/capas/memorial_do_convento.jpg'),
 ('Ensaio sobre a Cegueira', 1995,'uploads/capas/ensaio_sobre_a_cegueira.jpg'),
 ('The Talisman', 1984,'uploads/capas/the_talisman.jpg'),
-('The Shinning', 1977,'uploads/capas/the_shinning.jpg'),
+('The Shining', 1977,'uploads/capas/the_shining.jpg'),
 ('Ghost Story', 1979,'uploads/capas/ghost_story.jpg'),
 ('Ensaio sobre a lucidez', 2004,'uploads/capas/ensaio_sobre_a_lucidez.jpg'),
 ('O Crime do Padre Amaro', 1875,'uploads/capas/crime_do_padre_amaro.jpg'),

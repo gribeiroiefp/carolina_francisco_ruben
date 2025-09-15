@@ -84,7 +84,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <input type="text" name="nacionalidade" placeholder="Nacionalidade" required class="form-control mb-3" />
             <label for="foto" class="form-label">Foto do autor (imagem):</label>
             <input type="file" name="foto" id="foto" accept="image/*" required class="form-control mb-3" />
-            <button type="submit" class="btn btn-primary">Inserir Autor</button>
+            <button type="submit" class="btn btn-secondary">Inserir Autor</button>
         </form>
         <!-- <div class="editar">
             <h2>Opções</h2>

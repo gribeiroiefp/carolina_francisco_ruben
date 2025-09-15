@@ -98,8 +98,8 @@ $resultado_livros = mysqli_query($conn, $sql_livros_autor);
 
         <div class="editar">
             <h2>Opções</h2>
-            <a href="inserir_livro.php" class="btn btn-primary">Inserir Livro</a>
-            <a href="inserir_autor.php" class="btn btn-primary">Inserir Autor</a>
+            <a href="inserir_livro.php" class="btn add-btn">Inserir Livro</a>
+            <a href="inserir_autor.php" class="btn add-btn">Inserir Autor</a>
         </div> 
     </div>
     <footer class="container-fluid text-center">

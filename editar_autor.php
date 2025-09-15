@@ -117,7 +117,7 @@ mysqli_close($conexao);
             <?php if (!empty($autor['foto'])): ?>
                 <img src="<?php echo htmlspecialchars($autor['foto']) ?>" alt="Foto do autor" class="foto"> 
             <?php endif ?>
-            <button type="submit" class="btn btn-primary">Editar Autor</button>
+            <button type="submit" class="btn btn-secondary">Editar Autor</button>
         </form>
         <!-- <div class="editar">
             <h2>Opções</h2> <a href="inserir_filme.php" class="btn btn-primary">Inserir Filme</a> <a href="inserir_autor.php" class="btn btn-primary">Inserir Autor</a>

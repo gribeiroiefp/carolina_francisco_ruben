@@ -179,8 +179,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_author'])) {
 
         <div class="editar mt-5">
             <h2>Opções</h2>
-            <a href="inserir_livro.php" class="btn btn-primary">Inserir Filme</a>
-            <a href="inserir_autor.php" class="btn btn-primary">Inserir Ator</a>
+            <a href="inserir_livro.php" class="btn add-btn">Inserir Filme</a>
+            <a href="inserir_autor.php" class="btn add-btn">Inserir Ator</a>
         </div> 
     </div>
 

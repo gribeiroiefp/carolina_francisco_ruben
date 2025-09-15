@@ -61,6 +61,19 @@ header div a:hover {
 
 .lista {
     padding-top: 50px;
+}
+
+.recente-cont {
+    min-height: 350px;
+}
+
+.recente .row {
+    height: 100%;
+    padding: 10px;
+    background: rgba(1, 1, 1, 0.2);
+    border-radius: 5px;
+}
+
 .recente .row:hover {
     background: rgba(1, 1, 1, 0.6);
 }
@@ -70,6 +83,26 @@ header div a:hover {
     background: black;
     background-position: center;
     background-size: cover;
+    border-radius: 5px;
+}
+
+.recente a {
+    color: white;
+    text-decoration: none;
+    height: 100%;
+}
+
+.info-holder-books {
+    background-color: rgba(0, 0, 0, 0.75);
+    padding: 10px 5px;
+    min-height: 125px;
+    border-radius: 5px;
+}
+
+.info-holder-authors {
+    background-color: rgba(0, 0, 0, 0.75);
+    padding: 10px 5px;
+    align-content: center;
     border-radius: 5px;
 }
 
@@ -105,11 +138,6 @@ header div a:hover {
     padding-bottom: 30px;
     padding-top: 80px;
 }
-
-
-
-
-
 
 .livro .opcoes a.btn-editar,
 .autor .opcoes a.btn-editar{
