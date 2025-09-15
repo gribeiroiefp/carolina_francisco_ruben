@@ -22,6 +22,7 @@ $autores = $conn->query($sql);
     <title>Website de livros</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/styles.css">
 </head>
 
 <body>
@@ -55,7 +56,7 @@ $autores = $conn->query($sql);
                     <div class="recente-cont col">
                         <div class="recente container"
                             style="background-image: url('$capa');">
-                            <a href="#">
+                            <a href="./livro.php?id=$id">
                                 <div class="row align-items-end">
                                     <div class="col info-holder-books">
                                         <h3>$titulo</h3>
@@ -87,7 +88,7 @@ $autores = $conn->query($sql);
                     echo <<<HTML
                         <div class="recente-cont col">
                             <div class="recente container" style="background-image: url('$foto');">
-                                <a href="#">
+                                <a href="./autor.php?id=$id">
                                     <div class="row align-items-end">
                                         <div class="col info-holder-authors">
                                             <h3>$nome</h3>
