@@ -6,7 +6,6 @@ if ($conn->connect_error) {
     die('Erro na ligação: ' . $conn->connect_error);
 }
 
-
 $msg = '';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -48,8 +47,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 
 // procurar autores 
-            $result = $conn->query("SELECT id, nome FROM autores ORDER BY nome");
-            $autores = $result->fetch_all(MYSQLI_ASSOC);
+$result = $conn->query("SELECT id, nome FROM autores ORDER BY nome");
+$autores = $result->fetch_all(MYSQLI_ASSOC);
 
 mysqli_close($conn);
 
@@ -86,16 +85,13 @@ mysqli_close($conn);
         <form action="inserir_livro.php" method="POST" enctype="multipart/form-data" class="mb-5 inserir">
             <input type="text" name="titulo" placeholder="Título" required class="form-control mb-3" />
             <input type="number" name="ano" placeholder="Ano" required min="1100" max="2099" step="1" class="form-control mb-3" />
-            
-            
-            
 
-             <label for="autor">Autor:</label>
-             <select name="autor_id" id="autor" class="form-select mb-3" required>
-             <option value="">Selecione um autor</option>
-             <?php foreach($autores as $autor): ?>
-                <option value="<?= $autor['id'] ?>"><?= $autor['nome'] ?></option>
-               <?php endforeach; ?>
+            <label for="autor">Autor:</label>
+            <select name="autor_id" id="autor" class="form-select mb-3" required>
+                <option value="">Selecione um autor</option>
+                <?php foreach ($autores as $autor): ?>
+                    <option value="<?= $autor['id'] ?>"><?= $autor['nome'] ?></option>
+                <?php endforeach; ?>
             </select>
 
             <label for="capa" class="form-label">Capa do Livro (imagem):</label>
@@ -103,7 +99,7 @@ mysqli_close($conn);
             <button type="submit" class="btn btn-primary">Inserir Livro</button>
         </form>
     </div>
-    
+
     <footer class="container-fluid text-center">
         <div class="container-lg">
             <p>&copy; 2025 Website de livros</p>
@@ -115,4 +111,3 @@ mysqli_close($conn);
 </body>
 
 </html>
-
