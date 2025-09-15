@@ -1,0 +1,176 @@
+body {
+    background: #fff7cc;
+}
+
+header {
+    background-color: #d16344;
+}
+
+header div {
+    padding: 4px 0;
+    color: white;
+}
+
+header div a {
+    color: white;
+    text-decoration: none;
+    margin-left: 30px;
+}
+
+header div a:hover {
+    opacity: 0.7;
+}
+
+.pesquisa .pesquisa-form {
+    padding-top: 80px;
+    padding-bottom: 50px;
+    border-bottom: 1px solid #adadad;
+}
+
+.pesquisa .pesquisa-form form {
+    margin-top: 30px;
+}
+
+.pesquisa .pesquisa-form form .sombra-form {
+    width: fit-content;
+    margin: auto;
+    box-shadow: 0px 0px 5px -1px #090a0887;
+    
+}
+
+.pesquisa .pesquisa-form input {
+    line-height: 32px;
+    padding: 8px 16px;
+    border: none;
+    width: 420px;
+    display: inline-block;
+    outline: none;
+}
+
+.pesquisa .pesquisa-form button {
+    background: #d16344;
+    color: rgb(255, 255, 255);
+    height: 48px;
+    text-align: center;
+    display: inline-block;
+    border: none;
+    margin-left: -4px;
+    padding: 0 28px;
+}
+
+.lista {
+    padding-top: 50px;
+}
+
+.lista h3 {
+    padding-bottom: 30px;
+}
+
+.lista a {
+    margin: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: black;
+    text-decoration: none;
+    background-color: #b2bb91;
+}
+
+.lista a:hover {
+    opacity: 0.7;
+}
+
+.home {
+    padding-top: 30px;
+}
+
+.home h2 {
+    padding-bottom: 30px;
+    padding-top: 80px;
+}
+.editar {
+    padding-bottom: 80px;
+}
+.editar h2 {
+    padding-bottom: 30px;
+    padding-top: 80px;
+}
+
+
+
+
+
+
+.livro .opcoes a.btn-editar,
+.autor .opcoes a.btn-editar{
+    margin-bottom: 6px;
+}
+
+form.inserir {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background-color: #b2bb91; 
+  border-radius: 8px;
+  box-shadow: 0 0 10px ;
+}
+
+form.inserir input[type="text"],
+form.inserir input[type="number"],
+form.inserir textarea,
+form.inserir input[type="file"] {
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  margin-bottom: 1rem;
+  border: 1px solid #b2bb91;
+  border-radius: 5px;
+  font-size: 1rem;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+form.iserir input[type="text"]:focus,
+form.iserir input[type="number"]:focus,
+form.iserir textarea:focus,
+form.iserir input[type="file"]:focus {
+  border-color: #83555e; 
+  outline: none;
+}
+
+form.iserir textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+form.iserir label {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 0.3rem;
+  color: #333;
+}
+div.inserir{
+    padding-top: 80px;
+}
+
+.foto{
+    max-width: 150px;
+    margin-right:20px
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+  form {
+    margin: 1rem;
+    padding: 1rem;
+  }
+}
+
+footer {
+    padding-top: 40px;
+    padding-bottom: 70px;
+    background-color: #b2bb91;
+    color: white;
+}
+
+footer p {
+    margin: 0;
+}
