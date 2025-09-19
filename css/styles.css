@@ -4,6 +4,7 @@ body {
 
 header {
     background-color: #d16344;
+    color: white;
 }
 
 header div {
@@ -62,6 +63,49 @@ header div a:hover {
     padding-top: 50px;
 }
 
+.recente-cont {
+    min-height: 350px;
+}
+
+.recente .row {
+    height: 100%;
+    padding: 10px;
+    background: rgba(1, 1, 1, 0.2);
+    border-radius: 5px;
+}
+
+.recente .row:hover {
+    background: rgba(1, 1, 1, 0.6);
+}
+
+.recente {
+    height: 100%;
+    background: black;
+    background-position: center;
+    background-size: cover;
+    border-radius: 5px;
+}
+
+.recente a {
+    color: white;
+    text-decoration: none;
+    height: 100%;
+}
+
+.info-holder-books {
+    background-color: rgba(0, 0, 0, 0.75);
+    padding: 10px 5px;
+    min-height: 125px;
+    border-radius: 5px;
+}
+
+.info-holder-authors {
+    background-color: rgba(0, 0, 0, 0.75);
+    padding: 10px 5px;
+    align-content: center;
+    border-radius: 5px;
+}
+
 .lista h3 {
     padding-bottom: 30px;
 }
@@ -94,11 +138,6 @@ header div a:hover {
     padding-bottom: 30px;
     padding-top: 80px;
 }
-
-
-
-
-
 
 .livro .opcoes a.btn-editar,
 .autor .opcoes a.btn-editar{
@@ -166,8 +205,31 @@ div.inserir{
 
 footer {
     padding-top: 40px;
-    padding-bottom: 70px;
+    padding-bottom: 40px;
     background-color: #b2bb91;
+    color: white;
+}
+
+.author-header {
+    padding: 10px 10px 10px 0px;
+}
+
+.book-item,
+.author-item {
+    text-decoration: none;
+    color: black;
+    background-color: #b2bb91;
+    margin-bottom: 20px;
+    padding: 10px 10px 10px 0px;
+}
+
+.rotulo {
+    color: black;
+    font-size: large;
+}
+
+.add-btn {
+    background: #d16344;
     color: white;
 }
 

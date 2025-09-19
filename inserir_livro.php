@@ -6,13 +6,12 @@ if ($conn->connect_error) {
     die('Erro na ligação: ' . $conn->connect_error);
 }
 
-
 $msg = '';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $titulo = $_POST['titulo'];
     $ano = (int)$_POST['ano'];
-
+    $id_autor = (int)$_POST['autor_id'];
     $diretorio_capas = 'uploads/capas/';
 
     // Verificar diretório 
@@ -36,6 +35,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 mysqli_stmt_bind_param($query, 'sis', $titulo, $ano, $imagem_caminho);
                 if (mysqli_stmt_execute($query)) {
                     $msg = 'Livro inserido com sucesso!';
+                    $id_livro = mysqli_insert_id($conn);
+                    if ($id_autor > 0) {
+                        $sql_insert = "INSERT INTO autores_livros (id_livro, id_autor) VALUES ($id_livro, $id_autor)";
+                        mysqli_query($conn, $sql_insert);
+                    }
                 } else {
                     $msg = 'Erro ao inserir livro: ' . mysqli_error($conn);
                 }
@@ -48,8 +52,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 
 // procurar autores 
-            $result = $conn->query("SELECT id, nome FROM autores ORDER BY nome");
-            $autores = $result->fetch_all(MYSQLI_ASSOC);
+$result = $conn->query("SELECT id, nome FROM autores ORDER BY nome");
+$autores = $result->fetch_all(MYSQLI_ASSOC);
 
 mysqli_close($conn);
 
@@ -86,27 +90,21 @@ mysqli_close($conn);
         <form action="inserir_livro.php" method="POST" enctype="multipart/form-data" class="mb-5 inserir">
             <input type="text" name="titulo" placeholder="Título" required class="form-control mb-3" />
             <input type="number" name="ano" placeholder="Ano" required min="1100" max="2099" step="1" class="form-control mb-3" />
-            
-            
-            
 
-             <label for="autor">Autor:</label>
-             <select name="autor_id" id="autor" class="form-select mb-3" required>
-             <option value="">Selecione um autor</option>
-             <?php foreach($autores as $autor): ?>
-                <option value="<?= $autor['id'] ?>"><?= $autor['nome'] ?></option>
-               <?php endforeach; ?>
+            <label for="autor">Autor:</label>
+            <select name="autor_id" id="autor" class="form-select mb-3" required>
+                <option value="">Selecione um autor</option>
+                <?php foreach ($autores as $autor): ?>
+                    <option value="<?= $autor['id'] ?>"><?= $autor['nome'] ?></option>
+                <?php endforeach; ?>
             </select>
 
             <label for="capa" class="form-label">Capa do Livro (imagem):</label>
             <input type="file" name="capa" id="capa" accept="image/*" required class="form-control mb-3" />
             <button type="submit" class="btn btn-secondary">Inserir Livro</button>
         </form>
-        <div class="editar">
-            <h2>Opções</h2>
-            <a href="inserir_autor.php" class="btn btn-secondary">Inserir autor</a>
-        </div>
     </div>
+
     <footer class="container-fluid text-center">
         <div class="container-lg">
             <p>&copy; 2025 Website de livros</p>
@@ -118,4 +116,3 @@ mysqli_close($conn);
 </body>
 
 </html>
-

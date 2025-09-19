@@ -87,12 +87,8 @@ if (isset($_GET['string']) && !empty($_GET['string'])) {
         <?php endif; ?>
         <div class="editar">
             <h2>Opções</h2>
-            <a href="inserir_livro.php" class="btn btn-secondary">Inserir Livro</a>
-            <a href="inserir_autor.php" class="btn btn-secondary">Inserir Autor</a>
-            <a href="editar_livro.php" class="btn btn-secondary">Editar Livro</a>
-            <a href="editar_autor.php" class="btn btn-secondary">Editar Autor</a>
-
-
+            <a href="inserir_livro.php" class="btn add-btn">Inserir Livro</a>
+            <a href="inserir_autor.php" class="btn add-btn">Inserir Autor</a>
         </div>
     </div>
     <footer class="container-fluid text-center">
